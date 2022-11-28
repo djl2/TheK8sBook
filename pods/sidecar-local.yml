@@ -6,12 +6,12 @@ metadata:
     app: sidecar
 spec:
   containers:
-  - name: ctr-web
+  - name: ctr-web # The nginx container. Includes the index.html file.
     image: nginx
     volumeMounts:
     - name: html
       mountPath: /usr/share/nginx/
-  - name: ctr-sync
+  - name: ctr-sync # The sync tool container. Monitors the gh source repo for changes and deploys the updated index.html.
     image: k8s.gcr.io/git-sync:v3.1.6
     volumeMounts:
     - name: html
@@ -30,7 +30,7 @@ spec:
     emptyDir: {}
 ---
 apiVersion: v1
-kind: Service
+kind: Service # The network service. Allows local access to the ctr-web nginx container.
 metadata:
   name: svc-sidecar
 spec:
