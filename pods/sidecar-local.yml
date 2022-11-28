@@ -18,7 +18,7 @@ spec:
       mountPath: /tmp/git
     env:
     - name: GIT_SYNC_REPO
-      value: https://github.com/nigelpoulton/ps-sidecar.git
+      value: https://github.com/djl2/ps-sidecar.git # Forked this repo. ctr-sync will monitor it for code changes.
     - name: GIT_SYNC_BRANCH
       value: master
     - name: GIT_SYNC_DEPTH
