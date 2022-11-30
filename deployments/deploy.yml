@@ -17,8 +17,8 @@ spec: # spec section. Most of the action happens here.
       maxSurge: 1
   template: # Below here is the PodTemplate
     metadata:
-      labels:
-        app: hello-world
+      labels: # The Service objects look for labels defined here
+        app: hello-world # Pod label.
     spec:
       containers:
       - name: hello-pod
