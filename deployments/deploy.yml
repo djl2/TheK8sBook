@@ -1,27 +1,27 @@
 apiVersion: apps/v1
-kind: Deployment
+kind: Deployment # Defines a Deployment object
 metadata:
-  name: hello-deploy
-spec:
-  replicas: 10
-  selector:
+  name: hello-deploy # Deployment name. Must be a valid DNS name
+spec: # spec section. Most of the action happens here.
+  replicas: 10 # Number of Pods to deploy & manage
+  selector: # spec.selector is list of labels that Pods must have in order for Deployment to manage them
     matchLabels:
       app: hello-world
-  revisionHistoryLimit: 5
+  revisionHistoryLimit: 5 # Tells K8s how many old ReplicaSets to keep for rollbacks.
   progressDeadlineSeconds: 300
   minReadySeconds: 10
-  strategy:
+  strategy: # This block controls how updates happen
     type: RollingUpdate
     rollingUpdate:
       maxUnavailable: 1
       maxSurge: 1
-  template:
+  template: # Below here is the PodTemplate
     metadata:
       labels:
         app: hello-world
     spec:
       containers:
       - name: hello-pod
-        image: nigelpoulton/k8sbook:1.0
+        image: nigelpoulton/k8sbook:1.0 # Define and update the container image version here
         ports:
         - containerPort: 8080
