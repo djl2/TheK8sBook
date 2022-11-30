@@ -3,7 +3,7 @@ kind: Service
 metadata:
   name: dual-stack-svc
 spec:
-  ipFamilyPolicy: PreferDualStack
+  ipFamilyPolicy: PreferDualStack # Allocates both IPv4 and IPv6 if supported by cluster
   type: ClusterIP
   ports:
   - port: 8080

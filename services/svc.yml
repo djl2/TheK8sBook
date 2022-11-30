@@ -16,4 +16,4 @@ spec:
     targetPort: 8080
     protocol: TCP
   selector:
-    chapter: services
+    chapter: services # In selector, tell the service to send traffic to Pods with this label

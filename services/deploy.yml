@@ -9,7 +9,7 @@ spec:
       chapter: services
   template:
     metadata:
-      labels:
+      labels: # Define the labels here for Services to connect
         chapter: services
     spec:
       containers:
