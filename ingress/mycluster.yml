@@ -10,5 +10,5 @@ metadata:
   region: us-east-2
 nodeGroups:
   - name: ng-1
-    instanceType: t3.micro
+    instanceType: t3.micro # Set EC2 node instances to t3.micro (to save on spend)
     desiredCapacity: 2
